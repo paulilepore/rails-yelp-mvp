@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-between align-items-center p-2 m-2"> <h1>Restaurants:</h1>
+<%= link_to("Add new", new_restaurant_path, class:"btn btn-primary") %>
+</div>
+<div class="conainer ml-5">
+  <div class="cards">
+    <% @restaurants.each do |restaurant| %>
+      <div class="card" style="width: 20rem;">
+      <img class="card-img-top" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= restaurant.name %></h5>
+          <p class="card-text">Type of food: <%= restaurant.category %></p>
+          <%= link_to("More details", restaurant_path(restaurant), class:"btn btn-secondary") %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
