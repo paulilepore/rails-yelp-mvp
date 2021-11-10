@@ -1,3 +1,18 @@
-    <h1><%= @restaurant.name %></h1>
-    <h2>Our Food: <%= @restaurant.category %></h2>
-    <p>📍 <%= @restaurant.address %></p>
+<h1 class="m-4"><%= @restaurant.name %></h1>
+<h2 class="m-4">Our Food: <%= @restaurant.category %></h2>
+<p class="m-4">📍 <%= @restaurant.address %></p>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item m-4 ">
+      <%= review.content %>
+      <%= review.rating.times do %>
+        <span class = "fa fa-star checked text-warning"></span>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<div class="text-center p-3">
+  <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "btn btn-secondary" %>
+  <%= link_to 'Go back to all restaurants', restaurants_path, class: "btn btn-secondary" %>
+</div>
